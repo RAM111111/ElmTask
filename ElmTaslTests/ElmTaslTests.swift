@@ -16,19 +16,34 @@ class ElmTaslTests: XCTestCase {
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    func testConverter() {
+        
+        XCTAssertEqual(BViewController().formated(string: "07:05:45 pm"), "19:05:45")
+        XCTAssertEqual(BViewController().formated(string: "12:00:00AM"), "00:00:00")
+        //if there no space befor am/pm
+        XCTAssertEqual(BViewController().formated(string: "07:05:45pm"), "19:05:45")
+        XCTAssertEqual(BViewController().formated(string: "12:00:00AM"), "00:00:00")
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+
+    }
+    
+    func testapi() {
+
+        getApi().ApiData{data in
+            XCTAssertNil(data)
+            XCTAssertEqual(data[0].user.name, "")
+            XCTAssertEqual(data[0].categories[0].title, "Nature")
+            XCTAssertEqual(data[0].urls.regular, "https://images.unsplash.com/photo-1464550883968-cec281c19761?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=1881cd689e10e5dca28839e68678f432")
         }
+
     }
+
+    
+
+
+    
 
 }
