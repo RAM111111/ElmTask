@@ -15,34 +15,30 @@ class ViewController: UIViewController {
         return vi
     }()
     
+
+    
     let btn1:UIButton = {
-        let btn = UIButton()
-        btn.layer.cornerRadius = 10
-        btn.setTitle("A", for: .normal)
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 32)
-        btn.titleLabel?.textColor = .black
-        btn.backgroundColor = .link
+        let btn = UIButton.PrimaryButton(title: "A")
         btn.addTarget(self, action:#selector(buttonA), for: .touchUpInside)
         return btn
     }()
     
+    
     let btn2:UIButton = {
-        let btn = UIButton()
-        btn.layer.cornerRadius = 10
-        btn.setTitle("B", for: .normal)
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 32)
-
-        btn.titleLabel?.textColor = .black
-        btn.backgroundColor = .link
+        let btn = UIButton.PrimaryButton(title: "B")
         btn.addTarget(self, action:#selector(buttonB), for: .touchUpInside)
         return btn
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-
         title = "Elm Task"
+        setUpView()
+        
+    }
+    
+    func setUpView(){
+        view.backgroundColor = .white
         view.addSubview(vi)
         vi.addSubview(btn1)
         vi.addSubview(btn2)
@@ -53,10 +49,13 @@ class ViewController: UIViewController {
         
         btn2.anchor(top: nil, leading: nil, bottom: vi.bottomAnchor, trailing:nil, size:CGSize(width: 150, height: 80), centerY: nil, centerX: vi.centerXAnchor)
         
-        
     }
     @objc func buttonA(){
+        //for collection view
         navigationController?.pushViewController(ACollectionViewController(), animated: true)
+        //for table view
+//        navigationController?.pushViewController(AViewController(), animated: true)
+
     }
     @objc func buttonB(){
         navigationController?.pushViewController(BViewController(), animated: true)

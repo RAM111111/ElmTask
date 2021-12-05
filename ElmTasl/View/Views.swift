@@ -51,5 +51,18 @@ extension UIView {
    
     }
 
+extension UIButton {
+    class func PrimaryButton(title:String) -> UIButton {
+            let btn = UIButton()
+            btn.layer.cornerRadius = 10
+            btn.setTitle(title, for: .normal)
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 28)
+            btn.titleLabel?.textColor = .black
+            btn.backgroundColor = .link
+            return btn
+        
+    }
+}
+
 
 

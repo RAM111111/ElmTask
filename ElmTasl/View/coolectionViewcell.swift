@@ -45,7 +45,7 @@ class colcll:UICollectionViewCell{
         iv.baselineAdjustment = .alignCenters
         iv.numberOfLines = 0
         iv.textColor = .white
-        iv.font = UIFont.systemFont(ofSize: 14)
+        iv.font = UIFont.boldSystemFont(ofSize: 14)
         return iv
     }()
     

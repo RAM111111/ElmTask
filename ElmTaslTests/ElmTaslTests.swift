@@ -34,7 +34,7 @@ class ElmTaslTests: XCTestCase {
 
         getApi().ApiData{data in
             XCTAssertNil(data)
-            XCTAssertEqual(data[0].user.name, "")
+            XCTAssertEqual(data[0].user.name, "Nicholas Kampouris")
             XCTAssertEqual(data[0].categories[0].title, "Nature")
             XCTAssertEqual(data[0].urls.regular, "https://images.unsplash.com/photo-1464550883968-cec281c19761?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=1881cd689e10e5dca28839e68678f432")
         }

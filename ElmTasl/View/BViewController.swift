@@ -32,11 +32,8 @@ class BViewController: UIViewController {
     }()
     
     let convertTimeButton:UIButton = {
-        let btn = UIButton()
-        btn.backgroundColor = .link
-        btn.layer.cornerRadius = 15
+        let btn = UIButton.PrimaryButton(title: "Convert")
         btn.addTarget(self, action: #selector(converter), for: .touchUpInside)
-        btn.setTitle("Convert", for: .normal)
         return btn
     }()
     
