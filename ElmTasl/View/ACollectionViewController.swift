@@ -35,7 +35,7 @@ class ACollectionViewController: UIViewController {
             
 
                 }
-    
+    //MARK:-setupViews
     func setupView(){
         view.backgroundColor = .white
         view.addSubview(cv)
@@ -44,6 +44,7 @@ class ACollectionViewController: UIViewController {
         cv.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor,padding: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16))
     }
     }
+//MARK:-extensionsfordatasource&delegat
 
     extension ACollectionViewController:UICollectionViewDelegate,UICollectionViewDataSource{
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -48,6 +48,7 @@ class BViewController: UIViewController {
       
     }
     
+    //MARK:-setupViews
     func setupViews(){
         view.backgroundColor = .white
         view.addSubview(MyView)
@@ -66,7 +67,7 @@ class BViewController: UIViewController {
     }
     
 
-    
+    //MARK:-converterfunc
     @objc func converter(){
         let time = UserTxt.text
         if  time != "" {

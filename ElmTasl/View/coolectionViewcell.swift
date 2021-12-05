@@ -77,39 +77,40 @@ class colcll:UICollectionViewCell{
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(Views)
-        Views.addSubview(cellimg)
-        Views.addSubview(view1)
-        Views.addSubview(view2)
-        view2.addSubview(profileImg)
-        view2.addSubview(profileName)
-        view1.addSubview(imgType)
-        view1.addSubview(viewcolor)
-
-
-
-        
-        Views.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
-        
-        view1.anchor(top: nil, leading: Views.leadingAnchor, bottom: view2.topAnchor, trailing: Views.trailingAnchor, padding:UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16) , size: CGSize(width: Views.bounds.width, height: 10))
-       
-        view2.anchor(top:nil, leading: Views.leadingAnchor, bottom: Views.bottomAnchor, trailing: Views.trailingAnchor, padding:UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16), size: CGSize(width: Views.bounds.width, height: 40))
-        
-        cellimg.anchor(top: Views.topAnchor, leading: Views.leadingAnchor, bottom: nil, trailing: Views.trailingAnchor, padding:.zero, size: CGSize(width: 0, height: 300))
-      
-        profileImg.anchor(top: nil, leading:nil , bottom:view2.bottomAnchor, trailing: view2.trailingAnchor, padding: .zero, size: CGSize(width: 50, height: 50))
-        
-        profileName.anchor(top: nil, leading:view2.leadingAnchor , bottom: view2.bottomAnchor, trailing:profileImg.leadingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8), size: CGSize(width: 0, height: 50))
-        
-        viewcolor.anchor(top: nil, leading:nil , bottom:view1.bottomAnchor, trailing: view1.trailingAnchor, padding: .zero, size: CGSize(width: 30, height: 30))
-        
-        imgType.anchor(top: nil, leading:view1.leadingAnchor , bottom: view1.bottomAnchor, trailing:profileImg.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8), size: CGSize(width: 0, height: 30))
-        
-        
-        
-        
+          setupview()
     }
     
+    //MARK:-setupviewfunc
+    func setupview(){
+          addSubview(Views)
+          Views.addSubview(cellimg)
+          Views.addSubview(view1)
+          Views.addSubview(view2)
+          view2.addSubview(profileImg)
+          view2.addSubview(profileName)
+          view1.addSubview(imgType)
+          view1.addSubview(viewcolor)
+          
+          Views.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
+          
+          view1.anchor(top: nil, leading: Views.leadingAnchor, bottom: view2.topAnchor, trailing: Views.trailingAnchor, padding:UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16) , size: CGSize(width: Views.bounds.width, height: 10))
+         
+          view2.anchor(top:nil, leading: Views.leadingAnchor, bottom: Views.bottomAnchor, trailing: Views.trailingAnchor, padding:UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16), size: CGSize(width: Views.bounds.width, height: 40))
+          
+          cellimg.anchor(top: Views.topAnchor, leading: Views.leadingAnchor, bottom: nil, trailing: Views.trailingAnchor, padding:.zero, size: CGSize(width: 0, height: 300))
+        
+          profileImg.anchor(top: nil, leading:nil , bottom:view2.bottomAnchor, trailing: view2.trailingAnchor, padding: .zero, size: CGSize(width: 50, height: 50))
+          
+          profileName.anchor(top: nil, leading:view2.leadingAnchor , bottom: view2.bottomAnchor, trailing:profileImg.leadingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8), size: CGSize(width: 0, height: 50))
+          
+          viewcolor.anchor(top: nil, leading:nil , bottom:view1.bottomAnchor, trailing: view1.trailingAnchor, padding: .zero, size: CGSize(width: 30, height: 30))
+          
+          imgType.anchor(top: nil, leading:view1.leadingAnchor , bottom: view1.bottomAnchor, trailing:profileImg.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8), size: CGSize(width: 0, height: 30))
+          
+          
+    }
+    //MARK:-configfunc
+
     func config(api:Api){
         let url = URL(string: api.urls.regular)!
         let data = try? Data(contentsOf: url)
@@ -127,10 +128,6 @@ class colcll:UICollectionViewCell{
                 
                 imgType.text =  api.categories[0].title
                 print(api.categories[0].title)
-                
-        //        cell.viewcolor.backgroundColor = uicolorFromHex(rgbValue: UInt32(busnessess[indexPath.row].color) ?? UInt32("#ffffff")!)
-        //        print( busnessess[indexPath.row].color)
-
                 
                 profileName.text =  api.user.name
                 print(api.user.name)
